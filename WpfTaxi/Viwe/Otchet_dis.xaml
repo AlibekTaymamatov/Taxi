@@ -9,7 +9,7 @@
       Title="Otchet_dis">
 
     <Grid>
-        <DataGrid ItemsSource="{Binding dispatch}" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False"  RowBackground="CadetBlue" AlternatingRowBackground="DarkOrchid" >
+        <DataGrid ItemsSource="{Binding dispatch}" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False"  RowBackground="SeaShell" AlternatingRowBackground="Aquamarine" >
 
             <DataGrid.Columns>
 

@@ -9,7 +9,7 @@
       Title="PageOrdersStatus">
 
     <Grid>
-        <DataGrid ItemsSource="{Binding orders }"  CanUserAddRows="False" CanUserDeleteRows="True"  AutoGenerateColumns="False" ColumnWidth="Auto" RowBackground="Gold" AlternatingRowBackground="Cornsilk">
+        <DataGrid ItemsSource="{Binding orders }"  CanUserAddRows="False" CanUserDeleteRows="True"  AutoGenerateColumns="False" RowBackground="Gold" AlternatingRowBackground="Cornsilk">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="№"  Binding="{Binding Orders_ID}" Width="Auto"  IsReadOnly="True"  />
                 <DataGridTextColumn Header="Клиент"  Binding="{Binding Client.client_name}" Width="Auto"  IsReadOnly="True"  />
@@ -17,7 +17,7 @@
                 <DataGridTextColumn Header="Откуда"  Binding="{Binding mesto_otpravleniya}" Width="Auto" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Куда"  Binding="{Binding mesto_naznacheniya}" Width="Auto" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Номер машины"  Binding="{Binding Driver.number_car}" Width="Auto" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Водитель"  Binding="{Binding Driver.Driver_name}" Width="Auto" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Водитель"  Binding="{Binding Driver.Driver_name}" Width="200" IsReadOnly="True"/>
 
                 <DataGridComboBoxColumn Header="Статус заказа"   Width="*" SelectedValueBinding="{Binding status_orders}" DisplayMemberPath="name" >
                     <DataGridComboBoxColumn.ElementStyle>
