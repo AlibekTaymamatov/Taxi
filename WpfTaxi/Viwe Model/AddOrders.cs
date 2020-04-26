@@ -115,7 +115,7 @@ namespace WpfTaxi.Viwe_Model
                             client.client_name = fio;
                             client.phone_number_client = nomerClient;
                             client.Client_ID = 1;
-                            client.black_list = false;
+                        
                             oreder.Orders_ID = 1;
                             oreder.mesto_otpravleniya = otpravka;
                             oreder.mesto_naznacheniya = naznacheniye;

@@ -68,6 +68,15 @@
       <DependentUpon>Authorization.xaml</DependentUpon>
     </Compile>
     <Compile Include="AuthorizationLog.cs" />
+    <Compile Include="Model\Client.cs" />
+    <Compile Include="Model\Color.cs" />
+    <Compile Include="Model\Dispatcher.cs" />
+    <Compile Include="Model\Driver.cs" />
+    <Compile Include="Model\Model.cs" />
+    <Compile Include="Model\Model1.cs" />
+    <Compile Include="Model\Orders.cs" />
+    <Compile Include="Model\status_orders.cs" />
+    <Compile Include="Model\sysdiagrams.cs" />
     <Compile Include="Viwe Model\AddDrivers.cs" />
     <Compile Include="Viwe Model\AddOrders.cs" />
     <Compile Include="Viwe Model\Base.cs" />
@@ -152,14 +161,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="App.Config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
