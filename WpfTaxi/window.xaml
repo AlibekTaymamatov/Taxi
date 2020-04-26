@@ -1,0 +1,35 @@
+﻿<Window x:Class="WpfTaxi.window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfTaxi.Viwe"
+        mc:Ignorable="d"
+        Title="window" Height="450" Width="auto" Background="White" >
+    <Grid >
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Frame x:Name="Page" Grid.Row="1" NavigationUIVisibility="Hidden" />
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+      
+                <ColumnDefinition ></ColumnDefinition>
+
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Command="{Binding OrV}" Background="DarkOrange">Заказы
+            </Button>
+            <Button Grid.Column="1"   Background="#B9F73E"  Command="{Binding AoV}">Добавить заказ</Button>
+            <Button Grid.Column="2"   Background="#5CCCCC" Command="{Binding AdV}">Добавить водителя</Button>
+            <Button Grid.Column="3"   Background="#37DA7E" Command="{Binding ldV}">Список водителей</Button>
+            <Button Grid.Column="5"   Background="Silver" Command="{Binding otT}">Отчет</Button>
+        </Grid>
+
+    </Grid>
+</Window>

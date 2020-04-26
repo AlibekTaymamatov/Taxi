@@ -1,0 +1,30 @@
+﻿<Page x:Class="WpfTaxi.Viwe.PageListDrivers"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfTaxi.Viwe"
+      mc:Ignorable="d" 
+     
+      Title="PageListDrivers">
+
+    <Grid>
+
+        <DataGrid ItemsSource="{Binding drivers}" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False"  RowBackground="YellowGreen" AlternatingRowBackground="Cornsilk" >
+           
+                <DataGrid.Columns>
+                <DataGridTextColumn Header="№"  Binding="{Binding Driver_ID}" Width="auto"   />
+                <DataGridTextColumn Header="Ф.И.О"  Binding="{Binding Driver_name}" Width="auto"/>
+
+                <DataGridTextColumn Header="Номер телефона"  Binding="{Binding Driver_phone_number}" Width="*" />
+                <DataGridTextColumn Header="Номер машины"  Binding="{Binding number_car}" Width="*"/>
+                <DataGridTextColumn Header="Модель машины"  Binding="{Binding Model.Model_name}" Width="*"/>
+                <DataGridTextColumn Header="Цвет машины"  Binding="{Binding Color.Color_name}" Width="*"/>
+                    
+              
+            </DataGrid.Columns>
+             
+        </DataGrid>
+
+    </Grid>
+</Page>

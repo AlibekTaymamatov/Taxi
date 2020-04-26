@@ -1,0 +1,41 @@
+﻿<Page x:Class="WpfTaxi.Viwe.PageOrdersStatus"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfTaxi.Viwe"
+      mc:Ignorable="d" 
+     
+      Title="PageOrdersStatus">
+
+    <Grid>
+        <DataGrid ItemsSource="{Binding orders }"  CanUserAddRows="False" CanUserDeleteRows="True"  AutoGenerateColumns="False" ColumnWidth="Auto" RowBackground="Gold" AlternatingRowBackground="Cornsilk">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="№"  Binding="{Binding Orders_ID}" Width="Auto"  IsReadOnly="True"  />
+                <DataGridTextColumn Header="Клиент"  Binding="{Binding Client.client_name}" Width="Auto"  IsReadOnly="True"  />
+                <DataGridTextColumn Header="Номер телефона"  Binding="{Binding Client.phone_number_client}" Width="Auto" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Откуда"  Binding="{Binding mesto_otpravleniya}" Width="Auto" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Куда"  Binding="{Binding mesto_naznacheniya}" Width="Auto" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Номер машины"  Binding="{Binding Driver.number_car}" Width="Auto" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Водитель"  Binding="{Binding Driver.Driver_name}" Width="Auto" IsReadOnly="True"/>
+
+                <DataGridComboBoxColumn Header="Статус заказа"   Width="*" SelectedValueBinding="{Binding status_orders}" DisplayMemberPath="name" >
+                    <DataGridComboBoxColumn.ElementStyle>
+                        <Style TargetType="ComboBox">
+                            <Setter Property="ItemsSource" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, 
+                                                                   Path=DataContext.status_Orders}"/>
+                            <Setter Property="IsReadOnly" Value="False"/>
+                        </Style>
+                    </DataGridComboBoxColumn.ElementStyle>
+                    <DataGridComboBoxColumn.EditingElementStyle>
+                        <Style TargetType="ComboBox">
+                            <Setter Property="ItemsSource" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, 
+                                                                   Path=DataContext.status_Orders}"/>
+                        </Style>
+                    </DataGridComboBoxColumn.EditingElementStyle>
+                </DataGridComboBoxColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>
