@@ -51,6 +51,6 @@
 
 
         <Button Grid.Row="6" Content="Подтвердить" Command="{Binding OK}" Grid.Column="1" HorizontalAlignment="Center"   VerticalAlignment="Center"  FontSize="20" Width="125" Height="35"  />
-
+        <Button Grid.Row="6" Content="Найти клиента" Command="{Binding Find}" Grid.Column="1" HorizontalAlignment="Left"   VerticalAlignment="Center" FontSize="18" Width="125" Height="35"   />
     </Grid>
 </Page>

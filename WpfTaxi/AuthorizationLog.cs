@@ -51,7 +51,7 @@ namespace WpfTaxi
                                 if (dispatcher != null)
                                 {
                                     win.Hide();
-                                    window window = new window(dispatcher.Dispatcher_ID);//vot tut pedaem pramtr>?
+                                    window window = new window(dispatcher.Dispatcher_ID);
                                     window.ShowDialog();
                                     win.Close();
                                 }

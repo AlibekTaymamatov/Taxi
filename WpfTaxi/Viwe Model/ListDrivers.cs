@@ -13,7 +13,7 @@ namespace WpfTaxi.Viwe_Model
     {
         private Model1 BD;
         private windowcs win;
-        public ListDrivers(Model1 bd, windowcs window)//Конструктор 
+        public ListDrivers(Model1 bd, windowcs window)
         {
             BD = bd;
             win = window;
@@ -24,7 +24,7 @@ namespace WpfTaxi.Viwe_Model
         }
         public ObservableCollection<Color> Colors { get; set; }
     
-        public ObservableCollection<Driver> drivers { get; set; }//Список заполнения комбобокс
+        public ObservableCollection<Driver> drivers { get; set; }
         public ObservableCollection<Model.Model> Models { get; set; }
         
 

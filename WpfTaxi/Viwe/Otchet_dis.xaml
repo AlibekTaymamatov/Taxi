@@ -9,18 +9,13 @@
       Title="Otchet_dis">
 
     <Grid>
-        <DataGrid ItemsSource="{Binding dispatch}" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False"  RowBackground="SeaShell" AlternatingRowBackground="Aquamarine" >
-
+        <DataGrid ItemsSource="{Binding dispatch}" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False"  
+                  RowBackground="SeaShell" AlternatingRowBackground="SeaShell" >
+            
             <DataGrid.Columns>
-
                 <DataGridTextColumn Header="Диспетчер"  Binding="{Binding Dispatcher_name }" Width="*"/>
-
                 <DataGridTextColumn Header="Количество принятых закзов"  Binding="{Binding Orders.Count }" Width="*" />
-                
-
             </DataGrid.Columns>
-
         </DataGrid>
-
     </Grid>
 </Page>

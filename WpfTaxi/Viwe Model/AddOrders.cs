@@ -13,17 +13,18 @@ namespace WpfTaxi.Viwe_Model
     {
         private Model1 BD;
 
-       // private windowcs win;
-        public AddOrders(Model1 bd, Dispatcher dispatcher)//Конструктор получили БД асожно ещё
+      
+        public AddOrders(Model1 bd, Dispatcher dispatcher)
         {
             BD = bd;
             dispatchers = dispatcher;
             Drivers = new ObservableCollection<Driver>(BD.Driver);
+            client = null;
         }
          
         public ObservableCollection<Driver> Drivers { get; set; }
         private Driver Selectdriver;
-      private Dispatcher dispatchers;
+        private Dispatcher dispatchers;
 
         public Driver SelectDriver
         {
@@ -106,15 +107,28 @@ namespace WpfTaxi.Viwe_Model
                         if (dialogResult == MessageBoxResult.Yes)
                         {
                             Orders oreder = new Orders();
-                            Client client = new Client();
+                            Client client;
+                            if (this.client != null)
+                            {
+                                client = this.client;
+                            }
+                            else
+                            {
+                                client = new Client();
+                                client.Client_ID = 1;
+                                client.client_name = fio;
+                                client.phone_number_client = nomerClient;
+                                BD.Client.Add(client);
+                                BD.SaveChanges();
+                            }
+                            
                        
 
-                            oreder.Dipatcher_FK = dispatchers.Dispatcher_ID;//???
+                            oreder.Dipatcher_FK = dispatchers.Dispatcher_ID;
                             oreder.status_orders_FK=1;
                             oreder.Driver_FK = Selectdriver.Driver_ID;
-                            client.client_name = fio;
-                            client.phone_number_client = nomerClient;
-                            client.Client_ID = 1;
+                            
+                            
                         
                             oreder.Orders_ID = 1;
                             oreder.mesto_otpravleniya = otpravka;
@@ -125,8 +139,7 @@ namespace WpfTaxi.Viwe_Model
                             int m = int.Parse(str[1]);
                             DateTime n = DateTime.Now;
                             oreder.time = new DateTime(n.Year,n.Month,n.Day,h,m,0);
-                            BD.Client.Add(client);                           
-                            BD.SaveChanges();
+                            
                             oreder.Client_FK = client.Client_ID;
                             
                             BD.Orders.Add(oreder);                            
@@ -147,6 +160,7 @@ namespace WpfTaxi.Viwe_Model
 
         }
 
+        Client client;
         public RelayCommand Find
         {
             get
@@ -156,43 +170,17 @@ namespace WpfTaxi.Viwe_Model
                     try
                     {
                         Client client = BD.Client.Where(i => i.phone_number_client == nomerClient).FirstOrDefault();
+
                         if (client != null)
                         {
-
+                            this.client = client;
+                            FIO = client.client_name;
                         }
                         else
                         {
-                            MessageBox.Show(
-                                                "Клиент не найден!",
+                            MessageBox.Show(    "Клиент не найден!",
                                                 "Внимание");
-                        }
-
-
-                                    MessageBoxResult dialogResult = MessageBox.Show(
-                                    "Вы уверены",
-                                    "Внимание",
-                                    MessageBoxButton.YesNo,
-                                    MessageBoxImage.Information,
-                                    MessageBoxResult.No,
-                                    MessageBoxOptions.DefaultDesktopOnly);
-                        if (dialogResult == MessageBoxResult.Yes)
-                        {
-                            Orders oreder = new Orders();
-
-                            client.client_name = fio;
-                            client.phone_number_client = nomerClient;
-                            oreder.Orders_ID = 1;
-                            oreder.mesto_otpravleniya = otpravka;
-                            oreder.mesto_naznacheniya = naznacheniye;
-                            string[] str = timeOR.Split('.');
-                            int h = int.Parse(str[0]);
-                            int m = int.Parse(str[1]);
-                            oreder.time = new DateTime(0, 0, 0, h, m, 0);
-                            BD.Orders.Add(oreder);
-                            BD.Client.Add(client);
-                            BD.SaveChanges();
-                            
-                        }
+                        }                        
                     }
                     catch (Exception ex)
                     {

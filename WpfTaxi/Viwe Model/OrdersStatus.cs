@@ -12,7 +12,7 @@ namespace WpfTaxi.Viwe_Model
     {
        
 
-        public OrdersStatus(Model1 bd, windowcs window)//Конструктор 
+        public OrdersStatus(Model1 bd, windowcs window)
         {
             BD = bd;
             win = window;
@@ -25,7 +25,7 @@ namespace WpfTaxi.Viwe_Model
             
         }
         public ObservableCollection<Dispatcher> dispatch { get; set; }
-        public ObservableCollection<status_orders> status_Orders { get; set; }//Список заполнения комбобокс
+        public ObservableCollection<status_orders> status_Orders { get; set; }
         private status_orders Selectstatus;
         public status_orders SelectStatus
         {
