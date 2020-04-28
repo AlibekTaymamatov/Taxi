@@ -9,7 +9,7 @@ using System.Windows;
 
 namespace WpfTaxi.Viwe_Model
 {
-    public class windowcs
+    public class windowcs : Base
     {
         public window w;
         PageOrdersStatus or;
@@ -25,6 +25,72 @@ namespace WpfTaxi.Viwe_Model
             Dispatcher_ID = id;
             this.w = win;
             bd = new Model1();
+        }
+
+        bool check0;
+        bool check1;
+        bool check2;
+        bool check3;
+
+        public bool Check0
+        {
+            get { return check0; }
+            set
+            {
+                check0 = true;
+                check1 = false;
+                check2 = false;
+                check3 = false;
+                OnPropertyChanged("Check0");
+                OnPropertyChanged("Check1");
+                OnPropertyChanged("Check2");
+                OnPropertyChanged("Check3");
+            }
+        }
+        public bool Check1
+        {
+            get { return check1; }
+            set
+            {
+                check0 = false;
+                check1 = true;
+                check2 = false;
+                check3 = false;
+                OnPropertyChanged("Check0");
+                OnPropertyChanged("Check1");
+                OnPropertyChanged("Check2");
+                OnPropertyChanged("Check3");
+            }
+        }
+        public bool Check2
+        {
+            get { return check2; }
+            set
+            {
+                check0 = false;
+                check1 = false;
+                check2 = true;
+                check3 = false;
+                OnPropertyChanged("Check0");
+                OnPropertyChanged("Check1");
+                OnPropertyChanged("Check2");
+                OnPropertyChanged("Check3");
+            }
+        }
+        public bool Check3
+        {
+            get { return check3; }
+            set
+            {
+                check0 = false;
+                check1 = false;
+                check2 = false;
+                check3 = true;
+                OnPropertyChanged("Check0");
+                OnPropertyChanged("Check1");
+                OnPropertyChanged("Check2");
+                OnPropertyChanged("Check3");
+            }
         }
 
         public RelayCommand OrV

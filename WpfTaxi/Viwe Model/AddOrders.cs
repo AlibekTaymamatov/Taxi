@@ -87,8 +87,16 @@ namespace WpfTaxi.Viwe_Model
             {
                 nomerClient = value;
                 OnPropertyChanged("NomerClient");
+                Client client = BD.Client.Where(i => i.phone_number_client == nomerClient).FirstOrDefault();
+
+                if (client != null)
+                {
+                    this.client = client;
+                    FIO = client.client_name;
+                }
             }
         }
+        Client client;
         public RelayCommand OK
         {
             get
@@ -97,15 +105,9 @@ namespace WpfTaxi.Viwe_Model
                 {
                     try
                     {
-                        MessageBoxResult dialogResult = MessageBox.Show(
-        "Вы уверены",
-        "Внимание",
-        MessageBoxButton.YesNo,
-        MessageBoxImage.Information,
-        MessageBoxResult.No,
-        MessageBoxOptions.DefaultDesktopOnly);
-                        if (dialogResult == MessageBoxResult.Yes)
-                        {
+                       
+                      
+                        
                             Orders oreder = new Orders();
                             Client client;
                             if (this.client != null)
@@ -122,14 +124,11 @@ namespace WpfTaxi.Viwe_Model
                                 BD.SaveChanges();
                             }
                             
-                       
-
+                      
                             oreder.Dipatcher_FK = dispatchers.Dispatcher_ID;
                             oreder.status_orders_FK=1;
                             oreder.Driver_FK = Selectdriver.Driver_ID;
-                            
-                            
-                        
+                      
                             oreder.Orders_ID = 1;
                             oreder.mesto_otpravleniya = otpravka;
                             oreder.mesto_naznacheniya = naznacheniye;
@@ -144,12 +143,7 @@ namespace WpfTaxi.Viwe_Model
                             
                             BD.Orders.Add(oreder);                            
                             BD.SaveChanges();
-                           
 
-                           
-
-                            
-                        }
                     }
                     catch (Exception ex)
                     {
@@ -160,36 +154,7 @@ namespace WpfTaxi.Viwe_Model
 
         }
 
-        Client client;
-        public RelayCommand Find
-        {
-            get
-            {
-                return new RelayCommand(obj =>
-                {
-                    try
-                    {
-                        Client client = BD.Client.Where(i => i.phone_number_client == nomerClient).FirstOrDefault();
-
-                        if (client != null)
-                        {
-                            this.client = client;
-                            FIO = client.client_name;
-                        }
-                        else
-                        {
-                            MessageBox.Show(    "Клиент не найден!",
-                                                "Внимание");
-                        }                        
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-                });
-            }
-            
-
-        }
+   
+       
     }
 }
